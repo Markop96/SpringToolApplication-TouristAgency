@@ -1,0 +1,48 @@
+<mat-sidenav-container  class="example-container" >
+  <mat-sidenav mode="side" opened class="hover">
+    <mat-accordion >
+      <a id="home" mat-button
+        style="display: flex; justify-content: center; align-items: center; padding-top: 40px;padding-bottom: 40px; background-color: darkolivegreen;"
+        [routerLink]="['/home']">
+        <mat-icon style="color: yellowgreen !important; ">home</mat-icon>
+      </a>
+      <mat-expansion-panel style="width: 300px; ">
+        <mat-expansion-panel-header>
+          <mat-panel-description style="color: white;">
+            Turistička agencija - evidencije
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-nav-list style="text-align: center;">
+          <a mat-raised-button color="accent" [routerLink]="['/agencija']"
+            style="background-color: rgb(69, 90, 24); color: white; font-weight: bold; width: 200px;">Agencije</a>
+        </mat-nav-list>
+        <mat-nav-list style="text-align: center;">
+          <a mat-raised-button color="accent" [routerLink]="['/hotel']"
+            style="background-color: olivedrab; color: white; font-weight: bold;width: 200px;">Hoteli</a>
+        </mat-nav-list>
+        <mat-nav-list style="text-align: center; padding-bottom: 20px;">
+          <a mat-raised-button color="accent" [routerLink]="['/destinacija']"
+            style="background-color: rgb(128, 171, 43); color: white; font-weight: bold;width: 200px;">Destinacije</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-description style="color: white;">
+            Osnovne informacije o aplikaciji
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-nav-list style="text-align: center; ">
+          <a mat-button [routerLink]="['/about']"
+            style="width: 80px; background-color: rgb(69, 90, 24); color: white; border-radius: 0;">O nama</a>
+          <a mat-button [routerLink]="['/author']"
+            style="width: 80px; background-color: rgb(82, 109, 28); color: white; border-radius: 0;">Autor</a>
+          <a mat-button [routerLink]="['/home']"
+            style="width: 80px; background-color: olivedrab; color: white; border-radius: 0;">Pocetna</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

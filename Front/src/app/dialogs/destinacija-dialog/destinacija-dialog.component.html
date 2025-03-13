@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag == 1" class="naslovD">Dodavanje destinacije</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2" class="naslovA">Ažuriranje destinacije: {{ data.mesto }}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3" class="naslovB">Brisanje destinacije: {{ data.mesto }}</h3>
+
+  <form class="dialog-content" #formControl="ngForm">
+    <div class="form-field">
+      <mat-form-field appearance="fill" class="input">
+        <input matInput placeholder="Mesto" name="mesto" [disabled]="flag == 3" [(ngModel)]="data.mesto" required />
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field appearance="fill" class="input">
+        <input matInput placeholder="Država" name="drzava" [disabled]="flag == 3" [(ngModel)]="data.drzava" required />
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field appearance="fill" class="input">
+        <textarea matInput placeholder="Opis" name="opis" [disabled]="flag == 3" [(ngModel)]="data.opis" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="mat-dialog-actions">
+      <button mat-button *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()" class="sacuvaj">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()" class="modifikuj">Modifikuj</button>
+      <button mat-button *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()" class="obrisi">Obriši</button>
+      <button mat-button (click)="cancel()" class="ponisti">Poništi</button>
+    </div>
+  </form>
+</div>

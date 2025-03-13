@@ -1,0 +1,12 @@
+.center {
+  display: flex;
+  justify-content: center; /* Horizontalno centriranje */
+  align-items: center; /* Vertikalno centriranje */
+  height: 100vh; /* Visina 100% visine ekrana */
+}
+
+img {
+  max-width: 100%; /* Da se slika ne rasteže van okvira */
+  max-height: 100%; /* Da se slika ne rasteže van okvira */
+  filter: drop-shadow(100px 70px 100px rgb(255, 166, 0));
+}

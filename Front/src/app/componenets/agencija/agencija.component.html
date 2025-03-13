@@ -1,0 +1,65 @@
+<div style="text-align: center; margin-top: 20px;">
+  <img src="assets/slike/agencija.png" style="width: 70px;">
+</div>
+<div>
+  <h1 style="text-align: center; color: olivedrab; margin-top: 10px; font-size: 50px;">AGENCIJE:</h1>
+</div>
+
+<div class="container mat-elevation-z8">
+  <mat-form-field style="width:100%; height: 70px;">
+    <input matInput placeholder="Pretraga agencija" (keyup)="applyFilter($event)">
+  </mat-form-field>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-table">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-cell">ID</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container  matColumnDef="naziv">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</mat-header-cell>
+      <mat-cell *matCellDef="let row" style="color: greenyellow;">{{ row.naziv }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="adresa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Adresa</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.adresa }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kontakt">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Kontakt</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.kontakt }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button style="color: rgb(255, 247, 3) !important;margin-left: 25px;" (click)="openDialog(1)">
+          <mat-icon >add</mat-icon>
+        </button>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row; let i = index">
+        <button mat-icon-button style="color: yellowgreen !important;" (click)="openDialog(2, row.id, row.naziv, row.adresa, row.kontakt)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openDialog(3, row.id, row.naziv, row.adresa, row.kontakt)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row style="cursor: pointer;" *matRowDef="let row; columns: displayedColumns" (click)="selectedRow(row)"></mat-row>
+
+  </mat-table>
+
+</div>
+<div style="text-align: center; color: rgb(154, 153, 153); font-size: 12px;">
+  <p>Klikom na agenciju prikazaće se aranažmani koje ta agencija nudi</p>
+</div>
+<div class="container mat-elevation-z8" style="box-shadow: none; margin-bottom: 200px; margin-top: 100px; background-color: rgb(48, 48, 48);">
+  <app-aranzman *ngIf="selectedAgencija" [selectedAgencija]="selectedAgencija"></app-aranzman>
+</div>
+
+<mat-paginator [length]="20" [pageSize]="3" [pageSizeOptions]="[3,6,9,12]" class="custom-paginator">
+</mat-paginator>

@@ -1,0 +1,42 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1" class="naslovD">Dodavanje aranžmana</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2" class="naslovA">Ažuriranje aranžmana: {{data.id}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3" class="naslovB">Brisanje aranžmana: {{data.id}}</h3>
+  
+    <form class="mat-dialog-content" #formControl="ngForm">
+      <div class="form">
+        <mat-form-field class="input">
+          <input matInput placeholder="Ukupna cena" name="ukupnaCena" [disabled]="flag == 3" [(ngModel)]="data.ukupna_cena" required />
+        </mat-form-field>
+      </div>
+
+      <div class="form combobox">
+        <mat-select placeholder="Hotel" name="hotel" [disabled]="flag==3" [(ngModel)]="data.hotel" required [compareWith]="compareAranzman">
+          <mat-option *ngFor="let hotel of Hoteli" [value]="hotel">
+            {{ hotel.naziv }}
+          </mat-option>
+        </mat-select>
+      </div>
+      
+      <div class="form">
+        <mat-form-field class="input">
+          <input matInput [matDatepicker]="datum_realizacije" placeholder="Datum realizacije" name="datum_realizacije" [disabled]="flag==3" [(ngModel)]="data.datum_realizacije" required />
+          <mat-datepicker-toggle matSuffix [for]="datum_realizacije"></mat-datepicker-toggle>
+          <mat-datepicker #datum_realizacije></mat-datepicker>
+        </mat-form-field>
+      </div>
+        
+      <div class="form">
+        <mat-checkbox name="Placeno" color="primary" [disabled]="flag==3" [(ngModel)]="data.placeno">Plaćeno</mat-checkbox>
+      </div>
+    
+  
+      <div class="mat-dialog-actions">
+        <button mat-button *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()" class="sacuvaj">Sačuvaj</button>
+        <button mat-button *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()" class="modifikuj">Modifikuj</button>
+        <button mat-button *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()" class="obrisi">Obriši</button>
+        <button mat-button (click)="cancel()" class="ponisti">Poništi</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,80 @@
+
+.container {
+    width: 400px; 
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .mat-dialog-content {
+    padding-top: 20px;
+  }
+  
+  .form {
+    margin-bottom: 15px; 
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px;
+  }
+  
+  button {
+    min-width: 80px; 
+  }
+  
+  .mat-form-field {
+    width: 100%; 
+  }
+  
+  .mat-checkbox {
+    margin-top: 8px; 
+  }
+  
+  .naslovA{
+    text-transform: uppercase;
+    color: greenyellow;
+  }
+
+  .naslovD{
+    text-transform: uppercase;
+    color: yellow;
+  }
+
+  .naslovB{
+    text-transform: uppercase;
+    color: red;
+  }
+
+  .input{
+    width: 400px;;
+  }
+
+  .combobox{
+    padding-bottom: 40px; width: 250px; margin: auto;
+  }
+
+  .sacuvaj{
+    margin: 20px 0 20px 50px;
+    background-color: greenyellow;
+    color: black;
+  }
+
+  .modifikuj{
+    margin: 20px 0 20px 50px;
+    background-color: rgba(144, 0, 184, 0.963);
+    color: white;
+  }
+
+  .obrisi{
+    margin: 20px 0 20px 50px;
+    background-color: red;
+    color: white;
+  }
+
+  .ponisti{
+    margin: 20px 50px 20px 0;
+    background-color: rgb(111, 111, 111);
+    color: white;
+  }
